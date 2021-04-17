@@ -1,0 +1,67 @@
+.Header {
+  background: #efefef;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px #999;
+}
+
+.Header .elem-list {
+  display: flex;
+  align-items: center;
+}
+
+.Header .logo {
+  margin: 0 10px 0 20px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.Header .subtext {
+  font-style: italic;
+  color: gray;
+}
+
+.Header .photo-url {
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.Header .photo-url:hover {
+  box-shadow: 0 0 5px #333;
+}
+
+.Header .sign-out:hover {
+  text-decoration: underline;
+}
+
+.Header .user-popup {
+  position: absolute;
+  top: 90px;
+  right: 10px;
+  background: #efefef;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #333;
+  padding: 10px;
+  text-align: center;
+}
+
+.Header .user-popup img {
+  height: 60px;
+  border-radius: 50%;
+}
+
+.Header .user-popup p {
+  margin: 10px 0 5px 0;
+}
+
+.Header .user-popup button {
+  color: blue;
+  font-size: 16px;
+  height: 40px;
+  border: 0;
+}
