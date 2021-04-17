@@ -9,6 +9,7 @@ function File(props) {
   const [fileType, setFileType] = useState(undefined);
 
   const { name } = props.file;
+  const path = props.path;
 
   async function getFileData() {
     // get download url
@@ -27,12 +28,13 @@ function File(props) {
 
   async function deleteFile() {
     const uid = firebase.auth().currentUser.uid;
-    const storageRef = firebase.storage().ref(uid + '/' + name);
-    await storageRef.delete().then(props.onUpdate);
+    const storageRef = firebase.storage().ref(uid + path + name);
+    await storageRef.delete().then(props.onFileUpdate);
   }
 
   return (
     <div className="File grid-box">
+      <h1>File</h1>
       <p><a href={url} target="_blank" rel="noreferrer">{name}</a> ({fileType})</p>
       {
         fileType &&
