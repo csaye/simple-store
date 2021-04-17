@@ -1,8 +1,5 @@
-.FileInput .subtext {
-  margin-top: 0;
-}
-
 .FileInput .upload-file {
+  margin-top: 20px;
   display: flex;
 }
 

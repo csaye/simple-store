@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 import PublishIcon from '@material-ui/icons/Publish';
+import BackupIcon from '@material-ui/icons/Backup';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import firebase from 'firebase/app';
 
@@ -41,11 +43,11 @@ function FileInput(props) {
 
   return (
     <div className="FileInput grid-box">
-      <h1>Input</h1>
+      <h1><BackupIcon /><span className="title-text">Input</span></h1>
       <p className="subtext">{props.path}</p>
       {
         props.path !== '/' &&
-        <button onClick={props.leaveFolder}>Leave Folder</button>
+        <button onClick={props.leaveFolder}><ArrowBackIcon /></button>
       }
       <form className="upload-file" onSubmit={uploadFile}>
         <input
@@ -53,9 +55,13 @@ function FileInput(props) {
           className="file-input"
           onChange={e => setFile(e.target.files[0])}
           />
-          {file && <button type="submit"><PublishIcon /></button>}
+          {
+            (file && !loading) && <button type="submit"><PublishIcon /></button>
+          }
+          {
+            loading && <button><Loading /></button>
+          }
       </form>
-      {loading && <Loading />}
       <form className="new-folder" onSubmit={newFolder}>
         <input
           value={folderName}

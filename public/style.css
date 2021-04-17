@@ -24,6 +24,17 @@ button {
 
 .grid-box h1 {
   margin: 0;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.grid-box h1 .title-text {
+  margin-left: 5px;
+}
+
+.grid-box .subtext {
+  margin-top: 5px;
 }
 
 .subtext {

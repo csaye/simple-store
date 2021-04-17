@@ -1,3 +1,7 @@
+import FolderIcon from '@material-ui/icons/Folder';
+import ForwardIcon from '@material-ui/icons/Forward';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import firebase from 'firebase/app';
 
 import './Folder.css';
@@ -40,15 +44,14 @@ function Folder(props) {
 
   return (
     <div className="Folder grid-box">
-      <h1>Folder</h1>
-      <p>{name}</p>
+      <h1><FolderIcon /><span className="title-text">{name}</span></h1>
       <p className="subtext">{path + name + '/'}</p>
       <button
         onClick={() => props.setPath(path + name + '/')}
       >
-        Enter Folder
+        <ForwardIcon />
       </button>
-      <button onClick={deleteFolder}>Delete Folder</button>
+      <button onClick={deleteFolder}><DeleteIcon /></button>
     </div>
   );
 }

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import DeleteIcon from '@material-ui/icons/Delete';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 
 import firebase from 'firebase/app';
 
@@ -34,8 +37,9 @@ function File(props) {
 
   return (
     <div className="File grid-box">
-      <h1>File</h1>
-      <p><a href={url} target="_blank" rel="noreferrer">{name}</a> ({fileType})</p>
+      <h1><InsertDriveFileIcon /><span className="title-text">{name}</span></h1>
+      <p className="subtext">{path + name}</p>
+      <a href={url} target="_blank" rel="noreferrer"><OpenInNewIcon /></a>
       {
         fileType &&
         <>
@@ -44,7 +48,7 @@ function File(props) {
           {fileType.startsWith('video/') && <video src={url} controls />}
         </>
       }
-      <button className="delete-file" onClick={deleteFile}>Delete</button>
+      <button className="delete-file" onClick={deleteFile}><DeleteIcon /></button>
     </div>
   );
 }
