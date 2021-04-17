@@ -1,9 +1,26 @@
-.FileInput {
+.FileInput .subtext {
+  margin-top: 0;
+}
+
+.FileInput .upload-file {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .FileInput .file-input {
-  max-width: 100%;
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid rgb(118, 118, 118);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.FileInput .new-folder {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+.FileInput .folder-input {
+  flex-grow: 1;
 }
