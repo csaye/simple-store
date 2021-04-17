@@ -1,0 +1,4 @@
+.FileDisplay {
+  display: flex;
+  flex-wrap: wrap;
+}
