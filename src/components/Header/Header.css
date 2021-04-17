@@ -18,11 +18,6 @@
   cursor: pointer;
 }
 
-.Header .subtext {
-  font-style: italic;
-  color: gray;
-}
-
 .Header .photo-url {
   height: 60px;
   border-radius: 50%;

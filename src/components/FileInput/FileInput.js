@@ -32,6 +32,7 @@ function FileInput(props) {
 
   return (
     <div className="FileInput grid-box">
+      <h1>Input</h1>
       <p>{props.path}</p>
       {
         props.path !== '/' &&
@@ -39,6 +40,7 @@ function FileInput(props) {
       }
       <input
         type="file"
+        className="file-input"
         onChange={e => setFile(e.target.files[0])}
         />
       {

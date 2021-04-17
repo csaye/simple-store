@@ -1,3 +1,7 @@
+* {
+  word-break: break-word;
+}
+
 html, body, #root {
   height: 100%;
 }
@@ -12,4 +16,16 @@ button {
   border-radius: 10px;
   margin: 10px;
   height: fit-content;
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+}
+
+.grid-box h1 {
+  margin: 0;
+}
+
+.subtext {
+  font-style: italic;
+  color: gray;
 }

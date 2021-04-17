@@ -1,0 +1,9 @@
+.FileInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.FileInput .file-input {
+  max-width: 100%;
+}

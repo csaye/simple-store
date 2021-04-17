@@ -1,15 +1,16 @@
 .File img {
-  max-width: 120px;
+  max-width: 100%;
   display: block;
 }
 
 .File video {
-  max-width: 200px;
+  max-width: 100%;
   display: block;
 }
 
 .File audio {
   display: block;
+  width: 100%;
 }
 
 .File .delete-file {
