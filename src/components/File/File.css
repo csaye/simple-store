@@ -1,15 +1,27 @@
+.File .subtext {
+  margin-bottom: 10px;
+}
+
 .File img {
   max-width: 100%;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .File video {
   max-width: 100%;
   display: block;
+  margin-bottom: 10px;
 }
 
 .File audio {
   display: block;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.File audio::-webkit-media-controls-play-button,
+.File audio::-webkit-media-controls-panel {
+  background-color: #fff;
+  /* color: black; */
 }
