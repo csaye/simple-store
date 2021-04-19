@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# SimpleStore
+
+File storage simplified. Try it here: [csaye.com/simple-store](https://csaye.com/simple-store)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
