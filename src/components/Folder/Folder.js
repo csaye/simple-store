@@ -47,11 +47,14 @@ function Folder(props) {
       <h1><FolderIcon /><span className="title-text">{name}</span></h1>
       <p className="subtext">{path + name + '/'}</p>
       <button
+        className="icon-button"
         onClick={() => props.setPath(path + name + '/')}
       >
         <ForwardIcon />
       </button>
-      <button onClick={deleteFolder}><DeleteIcon /></button>
+      <button className="icon-button" onClick={deleteFolder}>
+        <DeleteIcon />
+      </button>
     </div>
   );
 }

@@ -15,6 +15,7 @@ function FileDisplay() {
 
   // gets all files from storage
   async function getFiles() {
+    setFiles(undefined);
     const uid = firebase.auth().currentUser.uid;
     const storageRef = firebase.storage().ref(uid + path);
     await storageRef.listAll().then(result => {
@@ -31,10 +32,16 @@ function FileDisplay() {
 
   // gets all folders from firestore
   async function getFolders() {
+    setFolders(undefined);
     const uid = firebase.auth().currentUser.uid;
     const foldersRef = firebase.firestore().collection('users').doc(uid).collection('folders').where('path', '==', path);
     await foldersRef.get().then(result => {
-      const data = result.docs.map(doc => getDoc(doc));
+      let data = result.docs.map(doc => getDoc(doc));
+      data.sort((a, b) => {
+        if (a.name > b.name) return 1;
+        if (a.name < b.name) return -1;
+        return 0;
+      });
       setFolders(data);
     });
   }

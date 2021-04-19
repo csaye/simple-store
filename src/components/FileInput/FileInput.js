@@ -13,11 +13,12 @@ import './FileInput.css';
 function FileInput(props) {
   const [file, setFile] = useState(undefined);
   const [folderName, setFolderName] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [fileLoading, setFileLoading] = useState(false);
+  const [folderLoading, setFolderLoading] = useState(false);
 
   async function uploadFile(e) {
     e.preventDefault();
-    setLoading(true);
+    setFileLoading(true);
     // if no file, return
     if (!file) return;
     // put file in storage
@@ -25,20 +26,23 @@ function FileInput(props) {
     const storageRef = firebase.storage().ref(uid + props.path + file.name);
     await storageRef.put(file).then(() => {
       props.onFileUpdate();
-      setLoading(false);
+      setFileLoading(false);
     });
   }
 
   async function newFolder(e) {
     e.preventDefault();
-    // return if no folder name
+    setFolderLoading(true);
     // add new folder in firebase
     const uid = firebase.auth().currentUser.uid;
     const foldersRef = firebase.firestore().collection('users').doc(uid).collection('folders');
     await foldersRef.add({
       name: folderName ? folderName : 'New Folder',
       path: props.path
-    }).then(props.onFolderUpdate);
+    }).then(() => {
+      props.onFolderUpdate();
+      setFolderLoading(false);
+    });
   }
 
   return (
@@ -47,7 +51,9 @@ function FileInput(props) {
       <p className="subtext">{props.path}</p>
       {
         props.path !== '/' &&
-        <button onClick={props.leaveFolder}><ArrowBackIcon /></button>
+        <button className="icon-button" onClick={props.leaveFolder}>
+          <ArrowBackIcon />
+        </button>
       }
       <form className="upload-file" onSubmit={uploadFile}>
         <input
@@ -56,10 +62,16 @@ function FileInput(props) {
           onChange={e => setFile(e.target.files[0])}
           />
           {
-            (file && !loading) && <button type="submit"><PublishIcon /></button>
+            (file && !fileLoading) &&
+            <button
+              className="icon-button"
+              type="submit"
+            >
+              <PublishIcon />
+            </button>
           }
           {
-            loading && <button><Loading /></button>
+            fileLoading && <button className="icon-button"><Loading /></button>
           }
       </form>
       <form className="new-folder" onSubmit={newFolder}>
@@ -69,9 +81,13 @@ function FileInput(props) {
           placeholder="New Folder"
           onChange={e => setFolderName(e.target.value)}
         />
-        <button type="submit">
-          <CreateNewFolderIcon />
-        </button>
+        {
+          folderLoading ?
+          <button className="icon-button"><Loading /></button> :
+          <button className="icon-button" type="submit">
+            <CreateNewFolderIcon />
+          </button>
+        }
       </form>
     </div>
   );
