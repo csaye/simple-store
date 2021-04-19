@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+import Logo from '../Logo/Logo.js';
 
 import firebase from 'firebase/app';
 
 import './Header.css';
-import logo from '../../img/logo.png';
-import logo2 from '../../img/logo2.png';
 
 function Header() {
   const [userPopup, setUserPopup] = useState(false);
-  const [logoSrc, setLogoSrc] = useState(logo);
 
   return (
     <div className="Header">
       <div className="elem-list">
-        <img
-          className="logo"
-          src={logoSrc}
-          alt="logo"
-          onMouseEnter={() => setLogoSrc(logo2)}
-          onMouseLeave={() => setLogoSrc(logo)}
-          />
+        <Logo />
         <p>
           SimpleStore
           <br/>
@@ -48,10 +42,10 @@ function Header() {
             <span className="subtext">{firebase.auth().currentUser.email}</span>
           </p>
           <button
-            className="sign-out"
+            className="sign-out icon-button"
             onClick={() => firebase.auth().signOut()}
           >
-            Sign Out
+            <ExitToAppIcon />
           </button>
         </div>
       }
