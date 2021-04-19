@@ -1,6 +1,7 @@
 .File img {
   max-width: 100%;
   display: block;
+  margin-bottom: 20px;
 }
 
 .File video {
@@ -11,8 +12,4 @@
 .File audio {
   display: block;
   width: 100%;
-}
-
-.File .delete-file {
-  margin: 10px 0 0 0;
 }

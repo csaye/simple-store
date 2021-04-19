@@ -12,10 +12,8 @@
   align-items: center;
 }
 
-.Header .logo {
+.Header .Logo {
   margin: 0 10px 0 20px;
-  height: 60px;
-  cursor: pointer;
 }
 
 .Header .photo-url {
@@ -52,11 +50,4 @@
 
 .Header .user-popup p {
   margin: 10px 0 5px 0;
-}
-
-.Header .user-popup button {
-  color: blue;
-  font-size: 16px;
-  height: 40px;
-  border: 0;
 }

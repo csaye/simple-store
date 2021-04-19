@@ -39,7 +39,6 @@ function File(props) {
     <div className="File grid-box">
       <h1><InsertDriveFileIcon /><span className="title-text">{name}</span></h1>
       <p className="subtext">{path + name}</p>
-      <a href={url} target="_blank" rel="noreferrer"><OpenInNewIcon /></a>
       {
         fileType &&
         <>
@@ -48,7 +47,18 @@ function File(props) {
           {fileType.startsWith('video/') && <video src={url} controls />}
         </>
       }
-      <button className="delete-file" onClick={deleteFile}><DeleteIcon /></button>
+      <button
+        className="icon-button"
+        onClick={() => window.open(url)}
+      >
+        <OpenInNewIcon />
+      </button>
+      <button
+        className="delete-file icon-button"
+        onClick={deleteFile}
+      >
+        <DeleteIcon />
+      </button>
     </div>
   );
 }

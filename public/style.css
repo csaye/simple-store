@@ -20,6 +20,7 @@ button {
   height: 200px;
   overflow: scroll;
   box-shadow: 0 0 5px #333;
+  transition: 0.25s;
 }
 
 .grid-box h1 {
@@ -33,6 +34,10 @@ button {
   margin-left: 5px;
 }
 
+.grid-box:hover {
+  transform: scale(1.02);
+}
+
 .grid-box .subtext {
   margin-top: 5px;
 }
@@ -40,4 +45,8 @@ button {
 .subtext {
   font-style: italic;
   color: gray;
+}
+
+.icon-button {
+  padding-top: 3px;
 }
